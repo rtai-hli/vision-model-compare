@@ -8,24 +8,34 @@ A web interface to compare different vision-language models using Ollama. Curren
 
 1. Install dependencies:
 ```bash
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Run the application:
+2. Install Ollama and required models:
+```bash
+# Install Ollama from https://ollama.ai
+ollama pull llava
+ollama pull llava:13b
+```
+
+3. Run the application:
 ```bash
 python app.py
 ```
 
-3. Open your browser and navigate to `http://localhost:5000`
+4. Open http://127.0.0.1:5000 in your browser
 
-## Usage
+## Features
 
-1. Click the "Choose Image" button to select an image from your computer
-2. The image will be displayed and automatically sent to the Llama Vision model for analysis
-3. The model's response will appear below the image
+- Upload custom images or use demo charts from ChartBench dataset
+- Compare responses from different vision models
+- View processing time for each model
+- Interactive UI with tooltips and visual feedback
 
 ## Requirements
 
-- Python 3.8+
-- Sufficient RAM for running Llama Vision model (recommended: 16GB+)
-- CUDA-capable GPU (recommended)
+- Python 3.10+
+- Ollama installed and running
+- 8GB+ RAM recommended
