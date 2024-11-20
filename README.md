@@ -1,26 +1,22 @@
-# Llama Vision Web App
+# Vision Model Comparison
 
-A Flask-based web application that uses Llama 3.2 Vision model for image analysis.
+A web interface to compare different vision-language models using Ollama. Currently compares:
+- LLaVA (Latest)
+- LLaVA 13B
 
-## Setup Instructions
+## Setup
 
-1. Create a virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-2. Install dependencies:
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Run the application:
+2. Run the application:
 ```bash
 python app.py
 ```
 
-4. Open your browser and navigate to `http://localhost:5000`
+3. Open your browser and navigate to `http://localhost:5000`
 
 ## Usage
 

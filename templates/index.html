@@ -14,80 +14,86 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.4;
             margin: 0;
-            padding: 2rem;
+            padding: 1rem;
             background-color: var(--background-color);
             color: var(--text-color);
+            font-size: 14px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary-color);
-            margin-bottom: 2rem;
-            text-align: center;
+            margin: 0.5rem 0;
+            text-align: left;
         }
 
-        .upload-section {
-            text-align: center;
-            margin-bottom: 2rem;
+        .controls-section {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 0.5rem 0;
         }
 
         .file-input {
             display: none;
         }
 
-        .file-label {
+        .file-label, #loadDemos {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1rem;
             background-color: var(--primary-color);
             color: white;
-            border-radius: 0.5rem;
+            border-radius: 0.375rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.2s;
+            font-size: 0.875rem;
+            border: none;
         }
 
-        .file-label:hover {
+        .file-label:hover, #loadDemos:hover {
             background-color: var(--secondary-color);
         }
 
         #imagePreview {
-            margin: 2rem 0;
+            margin: 1rem 0;
             text-align: center;
         }
 
         #imagePreview img {
-            max-width: 400px;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            max-width: 300px;
+            max-height: 200px;
+            border-radius: 0.375rem;
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
         }
 
         .response-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .model-response {
             background-color: var(--card-background);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
             border: 1px solid var(--border-color);
         }
 
         .model-response h3 {
-            margin-top: 0;
+            margin: 0 0 0.5rem 0;
             color: var(--primary-color);
-            font-size: 1.25rem;
+            font-size: 1rem;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
@@ -95,38 +101,40 @@
         }
 
         .time-badge {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             background-color: #e2e8f0;
-            padding: 0.25rem 0.75rem;
+            padding: 0.125rem 0.5rem;
             border-radius: 9999px;
             color: var(--text-color);
             font-weight: 500;
         }
 
         .response-text {
-            margin-top: 1rem;
-            line-height: 1.75;
+            margin-top: 0.5rem;
+            line-height: 1.5;
             color: var(--text-color);
+            font-size: 0.875rem;
         }
 
         .loading {
             text-align: center;
             color: var(--primary-color);
             font-weight: 500;
-            margin: 2rem 0;
+            margin: 0.5rem 0;
+            font-size: 0.875rem;
         }
 
         .demo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .demo-item {
             border: 1px solid var(--border-color);
-            border-radius: 0.5rem;
-            padding: 1rem;
+            border-radius: 0.375rem;
+            padding: 0.5rem;
             cursor: pointer;
             transition: transform 0.2s;
         }
@@ -137,31 +145,80 @@
 
         .demo-item img {
             width: 100%;
-            height: auto;
+            height: 100px;
+            object-fit: cover;
             border-radius: 0.25rem;
         }
 
         .demo-item p {
-            margin-top: 0.5rem;
-            font-size: 0.875rem;
+            margin: 0.25rem 0 0 0;
+            font-size: 0.75rem;
             color: var(--text-color);
+        }
+
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0.5rem 0 1rem 0;
+        }
+
+        .controls-section {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            margin: 0;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            font-size: 0.75rem;
+            visibility: hidden;
+            background-color: #374151;
+            color: white;
+            text-align: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Vision Model Comparison</h1>
-        
-        <div class="upload-section">
-            <input type="file" id="imageInput" accept="image/*" class="file-input">
-            <label for="imageInput" class="file-label">Choose an Image</label>
+        <div class="header-section">
+            <h1>Vision Model Comparison</h1>
+            
+            <div class="controls-section">
+                <div class="tooltip">
+                    <input type="file" id="imageInput" accept="image/*" class="file-input">
+                    <label for="imageInput" class="file-label">Upload Image</label>
+                    <span class="tooltiptext">Select an image from your computer</span>
+                </div>
+                <div class="tooltip">
+                    <button id="loadDemos">Load Examples</button>
+                    <span class="tooltiptext">Load 5 random charts from ChartBench dataset</span>
+                </div>
+            </div>
         </div>
 
-        <div class="demo-section" style="margin: 2rem 0;">
-            <button id="loadDemos" class="file-label" style="margin-bottom: 1rem;">Load Demo Images</button>
-            <div id="demoContainer" class="demo-grid" style="display: none;">
-                <!-- Demo images will be inserted here -->
-            </div>
+        <div id="demoContainer" class="demo-grid" style="display: none">
+            <!-- Demo images will be inserted here -->
         </div>
 
         <div id="imagePreview"></div>
@@ -173,17 +230,17 @@
         <div class="response-container">
             <div class="model-response">
                 <h3>
-                    Llama 3.2 Vision
-                    <span id="llamaTime" class="time-badge"></span>
+                    LLaVA (Latest)
+                    <span id="latestTime" class="time-badge"></span>
                 </h3>
-                <div id="llamaResponse" class="response-text"></div>
+                <div id="latestResponse" class="response-text"></div>
             </div>
             <div class="model-response">
                 <h3>
                     LLaVA 13B
-                    <span id="llavaTime" class="time-badge"></span>
+                    <span id="v13bTime" class="time-badge"></span>
                 </h3>
-                <div id="llavaResponse" class="response-text"></div>
+                <div id="v13bResponse" class="response-text"></div>
             </div>
         </div>
     </div>
@@ -201,10 +258,10 @@
                     
                     // Show loading
                     document.getElementById('loading').style.display = 'block';
-                    document.getElementById('llamaResponse').textContent = '';
-                    document.getElementById('llavaResponse').textContent = '';
-                    document.getElementById('llamaTime').textContent = '';
-                    document.getElementById('llavaTime').textContent = '';
+                    document.getElementById('latestResponse').textContent = '';
+                    document.getElementById('v13bResponse').textContent = '';
+                    document.getElementById('latestTime').textContent = '';
+                    document.getElementById('v13bTime').textContent = '';
                     
                     // Send to backend
                     fetch('/analyze', {
@@ -219,10 +276,15 @@
                     .then(response => response.json())
                     .then(data => {
                         document.getElementById('loading').style.display = 'none';
-                        document.getElementById('llamaResponse').textContent = data.llama_response;
-                        document.getElementById('llavaResponse').textContent = data.llava_response;
-                        document.getElementById('llamaTime').textContent = `${data.llama_time}s`;
-                        document.getElementById('llavaTime').textContent = `${data.llava_time}s`;
+                        if (data.error) {
+                            console.error('Server error:', data.error);
+                            alert('Error: ' + data.error);
+                            return;
+                        }
+                        document.getElementById('latestResponse').textContent = data.latest_response;
+                        document.getElementById('v13bResponse').textContent = data.v13b_response;
+                        document.getElementById('latestTime').textContent = `${data.latest_time}s`;
+                        document.getElementById('v13bTime').textContent = `${data.v13b_time}s`;
                     })
                     .catch(error => {
                         document.getElementById('loading').style.display = 'none';
@@ -243,7 +305,13 @@
                 .then(response => response.json())
                 .then(data => {
                     demoContainer.innerHTML = '';
+                    if (!data.demo_images || data.demo_images.length === 0) {
+                        demoContainer.innerHTML = 'No demo images available.';
+                        return;
+                    }
                     data.demo_images.forEach(demo => {
+                        if (!demo.image) return;  // Skip if no image
+                        
                         const demoItem = document.createElement('div');
                         demoItem.className = 'demo-item';
                         
@@ -251,17 +319,22 @@
                         img.src = `data:image/jpeg;base64,${demo.image}`;
                         img.alt = 'Demo chart';
                         
+                        const description = document.createElement('p');
+                        description.textContent = demo.description || 'No description available';
+                        
                         demoItem.appendChild(img);
+                        demoItem.appendChild(description);
+                        
                         demoItem.addEventListener('click', function() {
                             // Use the same analysis logic as file upload
                             document.getElementById('imagePreview').innerHTML = '';
                             document.getElementById('imagePreview').appendChild(img.cloneNode());
                             
                             document.getElementById('loading').style.display = 'block';
-                            document.getElementById('llamaResponse').textContent = '';
-                            document.getElementById('llavaResponse').textContent = '';
-                            document.getElementById('llamaTime').textContent = '';
-                            document.getElementById('llavaTime').textContent = '';
+                            document.getElementById('latestResponse').textContent = '';
+                            document.getElementById('v13bResponse').textContent = '';
+                            document.getElementById('latestTime').textContent = '';
+                            document.getElementById('v13bTime').textContent = '';
                             
                             fetch('/analyze', {
                                 method: 'POST',
@@ -275,10 +348,15 @@
                             .then(response => response.json())
                             .then(data => {
                                 document.getElementById('loading').style.display = 'none';
-                                document.getElementById('llamaResponse').textContent = data.llama_response;
-                                document.getElementById('llavaResponse').textContent = data.llava_response;
-                                document.getElementById('llamaTime').textContent = `${data.llama_time}s`;
-                                document.getElementById('llavaTime').textContent = `${data.llava_time}s`;
+                                if (data.error) {
+                                    console.error('Server error:', data.error);
+                                    alert('Error: ' + data.error);
+                                    return;
+                                }
+                                document.getElementById('latestResponse').textContent = data.latest_response;
+                                document.getElementById('v13bResponse').textContent = data.v13b_response;
+                                document.getElementById('latestTime').textContent = `${data.latest_time}s`;
+                                document.getElementById('v13bTime').textContent = `${data.v13b_time}s`;
                             })
                             .catch(error => {
                                 document.getElementById('loading').style.display = 'none';
@@ -292,7 +370,7 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    demoContainer.innerHTML = 'Error loading demo images.';
+                    demoContainer.innerHTML = 'Error loading demo images. Please try again later.';
                 });
         });
     </script>
